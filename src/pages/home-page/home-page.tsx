@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/shared/ui/Button';
 
 const HomePage = () => {
