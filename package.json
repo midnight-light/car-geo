@@ -50,7 +50,7 @@
     "*.{ts,tsx}": [
       "prettier --write",
       "eslint --fix",
-      "node -e \"require('child_process').spawnSync('node', ['node_modules/typescript/bin/tsc', '--noEmit', '-p', 'tsconfig.json'], { stdio: 'inherit' })\""
+      "tsc --project tsconfig.json --pretty --noEmit"
     ]
   }
 }
