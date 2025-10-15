@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
-import { api } from './api.instance';
+import { api } from './instance';
 import { VehicleDtoSchemaArray } from './api.contracts';
 import { responseContract } from './api.lib';
 

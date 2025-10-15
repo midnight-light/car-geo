@@ -16,3 +16,5 @@ export const VehicleDtoSchemaArray = z.array(VehicleDtoSchema);
 export const UpdateVehicleDtoSchema = VehicleDtoSchema.partial().omit({
   id: true,
 });
+
+export const ApiErrorDataSchema = z.array(z.string());

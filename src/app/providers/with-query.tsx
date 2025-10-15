@@ -1,7 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
+import { ApiErrorData } from '../api/api.types';
 import React from 'react';
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
@@ -10,5 +12,11 @@ const queryClient = new QueryClient({
   },
 });
 
-export const withQuery = (component: () => React.ReactNode) => () =>
-  <QueryClientProvider client={queryClient}>{component()}</QueryClientProvider>;
+declare module '@tanstack/react-query' {
+  interface Register {
+    defaultError: AxiosError<ApiErrorData>;
+  }
+}
+export const withQuery = (component: () => React.ReactNode) => () => (
+  <QueryClientProvider client={queryClient}>{component()}</QueryClientProvider>
+);
