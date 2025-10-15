@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from '@/shared/ui/Button';
 import { VehicleFeed } from '@/widgets/vehicle/vehicle-feed.ui';
+import { Button } from '@/shared/ui/shadcn/button';
 
 const HomePage = (): React.ReactElement => {
   return (
