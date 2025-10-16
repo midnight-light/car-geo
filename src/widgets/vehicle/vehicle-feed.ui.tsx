@@ -1,4 +1,5 @@
 import { RootState } from '@/app/store';
+import { VehicleCard } from '@/entities/vehicle/ui/vehicle.card.ui';
 import { vehiclesListQuery } from '@/entities/vehicle/vehicle.api';
 import { selectSortedVehicles } from '@/entities/vehicle/vehicle.selectors';
 import { useSuspenseQuery } from '@tanstack/react-query';
@@ -22,14 +23,12 @@ function BaseVehicleList() {
   const vehicles = useSelector((state: RootState) => selectSortedVehicles(state, data));
 
   return (
-    <div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {Array.from(vehicles).map((vehicle) => (
-        <div key={vehicle.id}>
-          <h3>{vehicle.name}</h3>
-          <p>{vehicle.model}</p>
-          <p>{vehicle.year}</p>
-        </div>
+        <VehicleCard key={vehicle.id} vehicle={vehicle} className="w-full" />
       ))}
     </div>
   );
 }
+
+BaseVehicleList.displayName = 'BaseVehicleList';
